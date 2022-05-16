@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
+import { LoginComponent } from './components/admin/login/login.component';
+import { RegisterComponent } from './components/admin/register/register.component';
 import { CreateComponent } from './components/books/create/create.component';
 import { DetailsComponent } from './components/books/details/details.component';
 import { ListComponent } from './components/books/list/list.component';
 
 const routes: Routes = [
-  {path:'',pathMatch:'full',redirectTo:'books'},
-  { path: 'books', component: ListComponent },
-  { path: 'book/:id', component: DetailsComponent },
-  { path: 'add', component: CreateComponent }
+  {path:'',pathMatch:'full',redirectTo:'login'},
+  { path: 'book', component: ListComponent, canActivate:[AuthGuard]},
+  { path: 'book/:id', component: DetailsComponent, canActivate:[AuthGuard] },
+  { path: 'add', component: CreateComponent, canActivate:[AuthGuard] },
+  { path: 'edit/:id', component: CreateComponent, canActivate:[AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

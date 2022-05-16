@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
+import { Books } from 'src/app/books';
 import { BooksService } from 'src/app/services/books.service';
 
 @Component({
@@ -9,13 +10,27 @@ import { BooksService } from 'src/app/services/books.service';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
-  constructor(private booksService:BooksService, private router:Router) { }
-
+  isAdd!: boolean;
+  book?:Books=new Books()
+  id!: number;
+  constructor(private booksService:BooksService, private router:Router, private ActivatedRoute:ActivatedRoute) { }
   ngOnInit(): void {
+    this.id=this.ActivatedRoute.snapshot.params['id'];
+    this.isAdd=!this.id
+    if(!this.isAdd){
+      this.booksService.getId(this.id).subscribe((param)=>{
+        this.book=param
+      })
+    }
   }
-  onSubmit(booksForm:NgForm){
-    this.booksService.add(booksForm.value).subscribe(
-      ()=>this.router.navigate(['']))
+  onSubmit(forms:NgForm){
+    if (!this.isAdd) {
+      console.log(forms.value)
+      this.booksService.update(this.id,forms.value).subscribe(()=>this.router.navigate(['']))
+    }
+    else{
+      this.booksService.add(forms.value).subscribe(()=>this.router.navigate(['']))
+    }
+
   }
 }

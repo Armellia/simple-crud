@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" class="form-control" placeholder="firstname" aria-describedby="helpId" [(ngModel)]="user.firstname">
+              </div>
+              <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname" class="form-control" placeholder="lastname" aria-describedby="helpId" [(ngModel)]="user.lastname">
+              </div>
+              
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email" class="form-control" placeholder="Email" aria-describedby="helpId" [(ngModel)]="user.email">
+          
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="helpId" [(ngModel)]="user.password">
+          </div>
+          
+    </div>
+    <div class="card-footer">
+
+        <button class="btn btn-primary" type="button" (click)="onRegister()">Register</button>
+    </div>
+</div>
