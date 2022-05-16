@@ -14,7 +14,8 @@
           </li>
         </ul>
         <div class="d-flex">
-          <button class="btn btn-success btn-outline" routerLink="login">Login</button>
+          <button class="btn btn-success btn-outline" routerLink="login" *ngIf="!isLoggedIn">Login</button>
+          <button class="btn btn-success btn-outline" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
         </div>
       </div>
     </div>

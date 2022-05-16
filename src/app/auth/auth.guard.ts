@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (!this.userService.isLogged) {
+      if (!sessionStorage.getItem('token')) {
         alert('You are not allowed to view this page. You are redirected to login Page');
         
         this.router.navigate(["login"],{ queryParams: { retUrl: route.url} });
@@ -30,7 +30,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+      return true
   }
   canLoad(
     route: Route,
