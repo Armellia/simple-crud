@@ -5,10 +5,11 @@ import { DetailsComponent } from './components/books/details/details.component';
 import { ListComponent } from './components/books/list/list.component';
 
 const routes: Routes = [
-  {path:'',pathMatch:'full',redirectTo:'books'},
-  { path: 'books', component: ListComponent },
-  { path: 'book/:id', component: DetailsComponent },
-  { path: 'add', component: CreateComponent }
+  {path:'',pathMatch:'full',redirectTo:'book'},
+  { path: 'book', component: ListComponent},
+  { path: 'book/:id', component: DetailsComponent},
+  { path: 'add', component: CreateComponent},
+  { path: 'edit/:id', component: CreateComponent },
 ];
 
 @NgModule({

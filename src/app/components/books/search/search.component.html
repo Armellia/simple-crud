@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col" style="min-width: 150px;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books;">
+        <th scope="row">{{book.id}}</th>
+        <td><b>{{book.title}}</b></td>
+        <td>{{book.author}}</td>
+        <td>
+          <button type="button" class="btn btn-info" routerLink="/book/{{book.id}}">View</button>
+          <button type="button" class="btn btn-danger" routerLink="/edit/{{book.id}}">Edit</button>
+          <app-delete [id]="book.id" (eventDelete)="pushBooks($event)"></app-delete>
+        </td>
+      </tr>
+    </tbody>
+  </table>

@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
+import { DeleteComponent } from './components/books/delete/delete.component';
+import { SearchComponent } from './components/books/search/search.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FooterComponent } from './components/template/footer/footer.component';
     DetailsComponent,
     ListComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DeleteComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

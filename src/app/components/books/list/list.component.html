@@ -1,42 +1,37 @@
-<div class="container mt-5">
-    <div class="bg-light p-5 rounded">
-        <div class="list row">
-            <div class="col-md-8">
-              <div class="input-group mb-4">
-                <input type="text" class="form-control" placeholder="Search by title"/>
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="button">
-                    Search
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <h4>Book List</h4>
-          
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col" style="min-width: 150px;">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let book of books;">
-                    <th scope="row">{{book.id}}</th>
-                    <td><b>{{book.title}}</b></td>
-                    <td>{{book.author}}</td>
-                    <td>
-                      <button type="button" class="btn btn-danger" routerLink="/book/{{book.id}}">Edit</button>
-                      <button type="button" class="btn btn-warning">Delete</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-          
-            </div>
-          </div>
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-4">
+      <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="search"/>
     </div>
   </div>
+  <div class="col-md-12">
+    <h4>Book List</h4>
+    <div *ngIf="!search">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col" style="min-width: 150px;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books;">
+          <th scope="row">{{book.id}}</th>
+          <td><b>{{book.title}}</b></td>
+          <td>{{book.author}}</td>
+          <td>
+            <button type="button" class="btn btn-info" routerLink="/book/{{book.id}}">View</button>
+            <button type="button" class="btn btn-danger" routerLink="/edit/{{book.id}}">Edit</button>
+            <app-delete [id]="book.id" (eventDelete)="pushBooks($event)"></app-delete>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>    
+    <div *ngIf="search">
+      <app-search [search]="search"></app-search>
+    </div>
+  </div>
+</div>

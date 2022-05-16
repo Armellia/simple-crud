@@ -1,5 +1,5 @@
-export interface Books{
-    id:number
-    title:string
-    author:string
+export class Books{
+    id?:number
+    title?:string
+    author?:string
 }
