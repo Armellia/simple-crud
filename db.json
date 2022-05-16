@@ -1,24 +1,78 @@
 {
   "books": [
     {
-      "id": 1,
+      "title": "asdsad21312",
+      "author": "asdas",
+      "id": 3
+    },
+    {
+      "id": 4,
       "title": "json-server",
       "author": "typicode"
     },
     {
-      "id": 2,
+      "id": 5,
       "title": "json-server",
       "author": "typicode"
     },
     {
-      "id": 3,
+      "id": 6,
       "title": "json-server",
       "author": "typicode"
     },
     {
-      "title": "ini judul",
-      "author": "judul ini mantap",
-      "id": 4
+      "id": 7,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 8,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 9,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 10,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 11,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 12,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "asasa",
+      "author": "asasa",
+      "id": 13
+    },
+    {
+      "title": "asdsa",
+      "author": "sadasd112",
+      "id": 17
+    }
+  ],
+  "users": [
+    {
+      "email": "bimaananta123@gmail.com",
+      "password": "$2a$10$jzfpkMcfpC1XZwTCGnMZJ.B6onJOoNGCwfmxVubaBlWK7czU0Mniu",
+      "id": 1
+    },
+    {
+      "email": "bimaananta@gmail.com",
+      "password": "$2a$10$xGR3/r./yM/An.WhVtfp3eYm5ZPqIQfIEY5PTWjeqYPVVJ1L3jxwW",
+      "firstname": "bima",
+      "lastname": "ananta",
+      "id": 2
     }
   ]
 }
